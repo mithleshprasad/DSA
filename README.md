@@ -1,8 +1,4 @@
 # DSA
-
-
-Here’s a topic-wise **DSA README** file for your structured learning. This roadmap assumes progression from beginner to advanced topics:  
-
 ---
 
 ## **Data Structures and Algorithms (DSA) README**  
