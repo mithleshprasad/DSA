@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Call Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fetch API Data</h1>
+    <button onclick="fetchArray()">Fetch Array</button>
+    <button onclick="fetchInfo()">Fetch Info</button>
+
+    <div id="output" class="output"></div>
+
+    <script>
+        const outputDiv = document.getElementById('output');
+
+        function fetchArray() {
+            fetch('https://animated-happiness-xg4vgj9r4jrhw-8045.app.github.dev/array')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status) {
+                        outputDiv.innerHTML = `<strong>Array Data:</strong> ${data.array}`;
+                    } else {
+                        outputDiv.innerHTML = '<strong>Error:</strong> Failed to fetch array data.';
+                    }
+                })
+                .catch(error => {
+                    outputDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+                });
+        }
+
+        function fetchInfo() {
+            fetch('https://animated-happiness-xg4vgj9r4jrhw-8045.app.github.dev/info')
+                .then(response => response.json())
+                .then(data => {
+                    outputDiv.innerHTML = `<strong>Info:</strong> ${JSON.stringify(data, null, 2)}`;
+                })
+                .catch(error => {
+                    outputDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
+                });
+        }
+    </script>
+</body>
+</html>

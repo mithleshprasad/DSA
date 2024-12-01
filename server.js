@@ -1,7 +1,13 @@
 const express = require("express");
-
+const cors = require("cors");
 const app = express();
 const PORT = 8045;
+const corsOptions = {
+    origin: "*", // Your front-end URL
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"]
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 app.get('/',(req,res) =>{
     res.send("Welcome to the DSA server! 🚀")
