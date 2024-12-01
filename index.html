@@ -3,54 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Call Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .output {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-        }
-    </style>
+    <title>API Test</title>
 </head>
 <body>
-    <h1>Fetch API Data</h1>
-    <button onclick="fetchArray()">Fetch Array</button>
+    <h1>API Endpoint Test</h1>
     <button onclick="fetchInfo()">Fetch Info</button>
-
-    <div id="output" class="output"></div>
+    <button onclick="fetchArray()">Fetch Array</button>
+    <div id="output"></div>
 
     <script>
-        const outputDiv = document.getElementById('output');
+        const baseURL = "https://dsa-07qz.onrender.com";
 
-        function fetchArray() {
-            fetch('https://animated-happiness-xg4vgj9r4jrhw-8045.app.github.dev/array')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.status) {
-                        outputDiv.innerHTML = `<strong>Array Data:</strong> ${data.array}`;
-                    } else {
-                        outputDiv.innerHTML = '<strong>Error:</strong> Failed to fetch array data.';
-                    }
-                })
-                .catch(error => {
-                    outputDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
-                });
+        async function fetchInfo() {
+            try {
+                const response = await fetch(`${baseURL}/info`);
+                const data = await response.json();
+                document.getElementById('output').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                console.error('Error fetching /info:', error);
+                document.getElementById('output').innerText = "Error fetching /info.";
+            }
         }
 
-        function fetchInfo() {
-            fetch('https://animated-happiness-xg4vgj9r4jrhw-8045.app.github.dev/info')
-                .then(response => response.json())
-                .then(data => {
-                    outputDiv.innerHTML = `<strong>Info:</strong> ${JSON.stringify(data, null, 2)}`;
-                })
-                .catch(error => {
-                    outputDiv.innerHTML = `<strong>Error:</strong> ${error.message}`;
-                });
+        async function fetchArray() {
+            try {
+                const response = await fetch(`${baseURL}/array`);
+                const data = await response.json();
+                document.getElementById('output').innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+            } catch (error) {
+                console.error('Error fetching /array:', error);
+                document.getElementById('output').innerText = "Error fetching /array.";
+            }
         }
     </script>
 </body>
