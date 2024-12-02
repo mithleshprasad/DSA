@@ -1,39 +1,22 @@
 const express = require("express");
 const cors = require("cors");
+const arrayRoutes = require("./routes/arrayRoutes");
+const infoRoutes = require("./routes/infoRoutes");
+
 const app = express();
 const PORT = 8045;
 
 // Configure CORS
-const corsOptions = {
-    origin: "*", // Allows all origins
-    methods: ["GET", "POST"], // Specify allowed HTTP methods
-    allowedHeaders: ["Content-Type"], // Specify allowed headers
-};
-app.use(cors(corsOptions)); // Use the CORS middleware
-app.use(express.json()); // Parse JSON bodies
+app.use(cors({ origin: "*", methods: ["GET", "POST"], allowedHeaders: ["Content-Type"] }));
+app.use(express.json());
+
+// Routes
+app.use("/array", arrayRoutes);
+app.use("/info", infoRoutes);
 
 // Root Route
 app.get('/', (req, res) => {
     res.send("Welcome to the DSA server! 🚀");
-});
-
-// Info Route
-app.get("/info", (req, res) => {
-    res.json({
-        status: true,
-        message: "JSON server run successful!",
-        server: "Express",
-    });
-});
-
-// Array Route
-app.get("/array", (req, res) => {
-    const arr = [1, 2, 3, 4, 5, 6];
-    const reversedArr = [...arr].reverse(); // Avoid mutating the original array
-    res.json({
-        status: true,
-        array: `Originally array ${arr} <br> Reversed array: ${reversedArr}`,
-    });
 });
 
 // Handle 404 (Not Found) for any undefined routes
