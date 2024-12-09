@@ -1,5 +1,5 @@
 const { getArraySum, reverseArray } = require("../models/arrayModel");
-const {ArrayQuestion} = require("../models/arrayModel");
+const ArrayModel = require("../models/arrayModel");
 
 exports.getArray = (req, res) => {
     const arr = [1, 2, 3, 4, 5, 6];
@@ -42,7 +42,7 @@ exports.getArrayQuestion = async (req, res) => {
   
       // Save the document in the database
       const savedArrayQuestion = await newArrayQuestion.save();
-      await ArrayQuestion.save();
+      await ArrayModel.save();
 
       res.status(201).json({
         message: "Array question created successfully",
