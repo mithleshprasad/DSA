@@ -1,0 +1,90 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build output
+dist/
+build/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.*.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary files
+*.tmp
+*.temp
+
+# Package lock files (if not using specific lock files)
+# Uncomment the line for the lock file you want to ignore.
+# If you're using multiple package managers, be cautious with this.
+# Uncomment one of the following lines if you want to ignore lock files:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Logs from PM2 or similar tools
+pm2.log
+pm2.pid
+
+# Optional NPM cache directory
+.npm
+
+# Debugging tools
+*.log.*
+
+# ESLint cache
+.eslintcache
+
+# Next.js build files
+.next/
+
+# SvelteKit build files
+.svelte-kit/
+
+# Parcel files
+.cache/
+.parcel-cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Local serverless directories
+.serverless/
+
+# Temporary files
+*.swp
+*~
+
+# Mac OS specific files
+._*
