@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { getArray, getArraySum} = require("../controller/arrayController");
-const { getArrayQuestion } = require("../controller/arrayController");
+const { getArray, getArraySumController, getArrayQuestion } = require("../controller/arrayController");
 
+// Define routes
 router.get("/array", getArray);
-router.get("/arraySum", getArraySum);
-router.post("/arrayQuestion",getArrayQuestion);
+router.get("/arraySum", getArraySumController); // Adjusted function name for clarity
+router.post("/arrayQuestion", getArrayQuestion);
 
+// Export the router
 module.exports = router;
