@@ -23,4 +23,4 @@ const ArraySchema = new mongoose.Schema({
     },
   });
   
-  module.exports = mongoose.model('getArray', ArraySchema);
+  module.exports = mongoose.model('getArrayQuestion', ArraySchema);
